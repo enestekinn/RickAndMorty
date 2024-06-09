@@ -15,7 +15,7 @@ final class  RMTabBarViewController: UITabBarController {
     }
     
     
-    func setUpTabs() {
+    private func setUpTabs() {
         let charactersVC = RMCharacterViewController()
         let locationVC = RMLocationViewController()
         let episodesVC = RMEpisodeViewController()
@@ -41,8 +41,9 @@ final class  RMTabBarViewController: UITabBarController {
         for nav in [nav1,nav2,nav3,nav4] {
             nav.navigationBar.prefersLargeTitles = true
         }
+        viewControllers = [nav1,nav2,nav3,nav4]
+        //setViewControllers([nav1,nav2,nav3,nav4], animated: true)
         
-        setViewControllers([nav1,nav2,nav3,nav4], animated: true)
         
         
     }
