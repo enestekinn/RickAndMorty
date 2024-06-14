@@ -35,9 +35,14 @@ extension CharacterListViewViewModel : UICollectionViewDataSource,UICollectionVi
         return 20
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemGreen
-        return cell
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier, for: indexPath) as? RMCharacterCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+        
+        let viewModel = RMCharacterCollectionViewCellViewModel(characterName: "Enes", characterStatus: .alive, characterImageUrl: nil)
+        cell.configure(with: viewModel)
+                return cell
     }
     
     
